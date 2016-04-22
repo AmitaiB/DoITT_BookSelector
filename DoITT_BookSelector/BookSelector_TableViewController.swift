@@ -60,7 +60,7 @@ class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITabl
                 guard let json = response.result.value else { return }
                 for i in 1...10 {
                     let title = json["items"][i]["volumeInfo"]["title"].stringValue
-                    let author = json["items"][i]["volumeInfo"]["authors"][1].stringValue
+                    let author = json["items"][i]["volumeInfo"]["authors"][0].stringValue
                     let description = json["items"][i]["volumeInfo"]["description"].stringValue
 
                     tempBookList.append(Book(title: title, ISBN: nil, author: author, description: description))
