@@ -12,6 +12,7 @@
 		38C1D4031CC9A56300EF9015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4011CC9A56300EF9015 /* Main.storyboard */; };
 		38C1D4051CC9A56300EF9015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4041CC9A56300EF9015 /* Assets.xcassets */; };
 		38C1D4081CC9A56300EF9015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4061CC9A56300EF9015 /* LaunchScreen.storyboard */; };
+		38C1D4121CC9B5A100EF9015 /* BookSelector_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D4111CC9B5A100EF9015 /* BookSelector_TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		38C1D4041CC9A56300EF9015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38C1D4071CC9A56300EF9015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38C1D4091CC9A56300EF9015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C1D4111CC9B5A100EF9015 /* BookSelector_TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSelector_TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */,
 				38C1D3FF1CC9A56300EF9015 /* MainViewController.swift */,
+				38C1D4111CC9B5A100EF9015 /* BookSelector_TableViewController.swift */,
 				38C1D4011CC9A56300EF9015 /* Main.storyboard */,
 				38C1D4041CC9A56300EF9015 /* Assets.xcassets */,
 				38C1D4061CC9A56300EF9015 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C1D4121CC9B5A100EF9015 /* BookSelector_TableViewController.swift in Sources */,
 				38C1D4001CC9A56300EF9015 /* MainViewController.swift in Sources */,
 				38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */,
 			);
