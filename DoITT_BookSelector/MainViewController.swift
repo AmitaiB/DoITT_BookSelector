@@ -36,13 +36,13 @@ class MainViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toBookSelectionSegueID" {
-            let bookSelectorVC = segue.destinationViewController as! BookSelector_TableViewController
+            let bookSelectorVC = segue.destinationViewController as! BookSelector_ViewController
             bookSelectorVC.searchString = searchField.text
         }
     }
 
     @IBAction func displaySelectionInMainViewController(segue: UIStoryboardSegue) {
-        guard let bookSelectionVC = segue.sourceViewController as? BookSelector_TableViewController else { return }
+        guard let bookSelectionVC = segue.sourceViewController as? BookSelector_ViewController else { return }
         titleDisplayLabel.text = bookSelectionVC.bookSelection?.title
         authorDisplayLabel.text = bookSelectionVC.bookSelection?.author
         descriptionDisplayLabel.text = bookSelectionVC.bookSelection?.description

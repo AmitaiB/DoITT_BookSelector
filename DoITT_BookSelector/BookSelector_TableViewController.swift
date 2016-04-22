@@ -12,9 +12,9 @@ import SwiftyJSON
 import AlamofireSwiftyJSON
 
 
-class BookSelector_TableViewController: UITableViewController {
+class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let kGOOGLE_APIKEY = "AIzaSyA6AYE6tkCG7kdalGnftIC9PaYbjTcPghw"
+    @IBOutlet weak var tableView: UITableView!
     
     var searchString: String?
     var bookSelection: Book?
@@ -76,16 +76,18 @@ class BookSelector_TableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookList.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         let book = bookList[indexPath.row]
         
@@ -96,7 +98,7 @@ class BookSelector_TableViewController: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         bookSelection = bookList[indexPath.row]
     }
 
