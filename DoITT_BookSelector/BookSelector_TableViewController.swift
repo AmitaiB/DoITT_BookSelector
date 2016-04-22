@@ -14,9 +14,9 @@ class BookSelector_TableViewController: UITableViewController {
 
     let kGOOGLE_APIKEY = "AIzaSyA6AYE6tkCG7kdalGnftIC9PaYbjTcPghw"
     
-    var bookList = [String:Book]()
     var searchString: String?
-    
+    var bookList = [Book]()
+    var bookSelection: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +41,18 @@ class BookSelector_TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let book = bookList[indexPath.row]
+        
+        cell.textLabel?.text = book.title
+        cell.detailTextLabel?.text = book.description
 
         return cell
     }
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        bookSelection = bookList[indexPath.row]
+    }
 
     /*
     // MARK: - Navigation
