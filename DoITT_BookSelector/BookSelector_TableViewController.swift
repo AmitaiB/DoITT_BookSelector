@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AlamofireSwiftyJSON
 
 
 class BookSelector_TableViewController: UITableViewController {
@@ -40,40 +41,26 @@ class BookSelector_TableViewController: UITableViewController {
                                            "maxResults" : 20,
                                            "printType" : "books",
                                            "orderBy" : "relevance"]
-        
+
         request(.GET, "https://www.googleapis.com/books/v1/volumes", parameters: params, encoding: .URL, headers: nil)
             .validate()
-        .responseJSON { (response) in
-            guard response.result.isSuccess else {
-                print("Error fetching book choices: \(response.result.error)")
-                completion(nil)
-                return
-            }
-            
-            guard let value = response.result.value as? [String: AnyObject],
-            bookObjects = value["items"] as? [[String: AnyObject]] else {
-                    print("Error, malformed data received from Google service.")
-                completion(nil)
-                return
-            }
-            
-            
-            
+            .responseSwiftyJSON { response in
+                guard response.result.isSuccess else {
+                    print("Error fetching book choices: \(response.result.error)")
+                    completion(nil)
+                    return
+                }
+                
+                var bookList = [Book]()
+                guard let json = response.result.value else { return }
+                for i in 1...10 {
+                    let title = json["items"][i]["volumeInfo"]["title"].stringValue
+                    let author = json["items"][i]["volumeInfo"]["authors"][1].stringValue
+                    let description = json["items"][i]["volumeInfo"]["description"].stringValue
+
+                    bookList.append(Book(title: title, ISBN: nil, author: author, description: description))
+                }
         }
-        
-        
-        
-    }
-    
-    
-    func getBookFromGoogleBookObject(googleResponseObject: [String: AnyObject]) -> Book {
-        var author = "Unknown author"
-        var description = "No description provided"
-        guard let volumeInfo = googleResponseObject["volumeInfo"] as? [String: AnyObject],
-            let title = volumeInfo["title"] as? String else { fatalError(#function) }
-        if let authorResponse = volumeInfo["authors"]
-        
-        return Book(title: title, ISBN: nil, author: author, description: description)
     }
     
     override func didReceiveMemoryWarning() {
