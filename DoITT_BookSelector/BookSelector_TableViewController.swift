@@ -13,6 +13,8 @@ internal let kGOOGLE_APIKEY = "AIzaSyA6AYE6tkCG7kdalGnftIC9PaYbjTcPghw"
 
 class BookSelector_TableViewController: UITableViewController {
 
+    var searchString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
