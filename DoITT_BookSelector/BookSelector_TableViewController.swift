@@ -20,13 +20,14 @@ class BookSelector_TableViewController: UITableViewController {
     var bookSelection: Book?
     var bookList = [Book]() {
         didSet {
+            tableView.alpha = (bookList.count == 0) ? 0 : 1
             tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        tableView.alpha = 0
         //Make Network request here.
         if let qString = searchString {
             requestGoogleBookListWithQuery(qString) { responseBookList in
@@ -37,6 +38,7 @@ class BookSelector_TableViewController: UITableViewController {
             print("Error, malformed request string.")
         }
     }
+    
     
     func requestGoogleBookListWithQuery(searchString: String, withCompletion completion: ([Book]?)->()) {
         let params: [String: AnyObject] = ["q" : searchString,
@@ -75,7 +77,7 @@ class BookSelector_TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return (bookList.count != 0) ?  1 : 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
