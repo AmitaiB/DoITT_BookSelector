@@ -24,6 +24,15 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if sender === searchButton && searchField.text?.characters.count == 0 {
+            searchField.placeholder = "Search string??"
+            return false
+        }
+        searchField.placeholder = nil
+        return true
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let bookSelectorVC = segue.destinationViewController as? BookSelector_TableViewController {
@@ -32,7 +41,10 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func displaySelectionInMainViewController(segue: UIStoryboardSegue) {
-        
+        guard let bookSelectionVC = segue.sourceViewController as? BookSelector_TableViewController else { return }
+        titleDisplayLabel.text = bookSelectionVC.bookSelection?.title
+        authorDisplayLabel.text = bookSelectionVC.bookSelection?.author
+        descriptionDisplayLabel.text = bookSelectionVC.bookSelection?.description
     }
     
     
