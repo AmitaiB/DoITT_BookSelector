@@ -68,21 +68,14 @@ class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITabl
                     let author = json["items"][i]["volumeInfo"]["authors"][0].stringValue
                     let description = json["items"][i]["volumeInfo"]["description"].stringValue
 
-                    tempBookList.append(Book(title: title, ISBN: nil, author: author, description: description))
+                    tempBookList.append(Book(title: title, author: author, description: description))
                 }
                 completion(tempBookList)
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
-    
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -91,7 +84,6 @@ class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITabl
         return bookList.count
     }
 
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         let book = bookList[indexPath.row]

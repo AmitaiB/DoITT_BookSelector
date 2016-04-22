@@ -10,7 +10,6 @@ import Foundation
 
 struct Book {
     let title: String! //A book must have a title
-    let ISBN: String? //If the ISBN is known, it cannot change
     var author: String = "Unknown author"
     var description: String = "No description"
 }
