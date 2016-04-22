@@ -93,10 +93,11 @@ class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.description
-
         return cell
     }
     
+    
+    // MARK: UITableView Delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         bookSelection = bookList[indexPath.row]
