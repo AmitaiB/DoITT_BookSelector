@@ -17,8 +17,12 @@ class BookSelector_TableViewController: UITableViewController {
     let kGOOGLE_APIKEY = "AIzaSyA6AYE6tkCG7kdalGnftIC9PaYbjTcPghw"
     
     var searchString: String?
-    var bookList = [Book]()
     var bookSelection: Book?
+    var bookList = [Book]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,6 @@ class BookSelector_TableViewController: UITableViewController {
             requestGoogleBookListWithQuery(qString) { responseBookList in
                 guard let bookList = responseBookList else { return }
                 self.bookList = bookList
-                self.tableView.reloadData()
             }
         } else {
             print("Error, malformed request string.")
@@ -50,16 +53,17 @@ class BookSelector_TableViewController: UITableViewController {
                     completion(nil)
                     return
                 }
-                
-                var bookList = [Book]()
+                debugPrint(response.result.value)
+                var tempBookList = [Book]()
                 guard let json = response.result.value else { return }
                 for i in 1...10 {
                     let title = json["items"][i]["volumeInfo"]["title"].stringValue
                     let author = json["items"][i]["volumeInfo"]["authors"][1].stringValue
                     let description = json["items"][i]["volumeInfo"]["description"].stringValue
 
-                    bookList.append(Book(title: title, ISBN: nil, author: author, description: description))
+                    tempBookList.append(Book(title: title, ISBN: nil, author: author, description: description))
                 }
+                completion(tempBookList)
         }
     }
     

@@ -35,7 +35,8 @@ class MainViewController: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let bookSelectorVC = segue.destinationViewController as? BookSelector_TableViewController {
+        if segue.identifier == "toBookSelectionSegueID" {
+            let bookSelectorVC = segue.destinationViewController as! BookSelector_TableViewController
             bookSelectorVC.searchString = searchField.text
         }
     }
