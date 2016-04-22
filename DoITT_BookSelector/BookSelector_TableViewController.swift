@@ -20,7 +20,59 @@ class BookSelector_TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         //Make Network request here.
+        if let qString = searchString {
+            requestGoogleBookListWithQuery(qString) { responseBookList in
+                guard let bookList = responseBookList else { return }
+                self.bookList = bookList
+                self.tableView.reloadData()
+            }
+        } else {
+            print("Error, malformed request string.")
+        }
+    }
+    
+    func requestGoogleBookListWithQuery(searchString: String, withCompletion completion: ([Book]?)->()) {
+        let params: [String: AnyObject] = ["q" : searchString,
+                                           "langRestrict" : "en",
+                                           "maxResults" : 20,
+                                           "printType" : "books",
+                                           "orderBy" : "relevance"]
+        
+        request(.GET, "https://www.googleapis.com/books/v1/volumes", parameters: params, encoding: .URL, headers: nil)
+            .validate()
+        .responseJSON { (response) in
+            guard response.result.isSuccess else {
+                print("Error fetching book choices: \(response.result.error)")
+                completion(nil)
+                return
+            }
+            
+            guard let value = response.result.value as? [String: AnyObject],
+            bookObjects = value["items"] as? [[String: AnyObject]] else {
+                    print("Error, malformed data received from Google service.")
+                completion(nil)
+                return
+            }
+            
+            
+            
+        }
+        
+        
+        
+    }
+    
+    
+    func getBookFromGoogleBookObject(googleResponseObject: [String: AnyObject]) -> Book {
+        var author = "Unknown author"
+        var description = "No description provided"
+        guard let volumeInfo = googleResponseObject["volumeInfo"] as? [String: AnyObject],
+            let title = volumeInfo["title"] as? String else { fatalError(#function) }
+        if let authorResponse = volumeInfo["authors"]
+        
+        return Book(title: title, ISBN: nil, author: author, description: description)
     }
     
     override func didReceiveMemoryWarning() {
