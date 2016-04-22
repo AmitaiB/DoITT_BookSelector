@@ -17,22 +17,10 @@ internal let kGOOGLE_APIKEY = "AIzaSyA6AYE6tkCG7kdalGnftIC9PaYbjTcPghw"
 class BookSelector_TableViewController: UITableViewController {
 
     var searchString: String?
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupActivityIndicatorView()
-        activityIndicator.startAnimating()
-
-    }
-
-    func setupActivityIndicatorView() {
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.removeConstraints(activityIndicator.constraints)
-        view.addSubview(activityIndicator)
-        activityIndicator.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        activityIndicator.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
     }
     
     override func didReceiveMemoryWarning() {
