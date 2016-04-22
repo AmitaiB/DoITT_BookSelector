@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+
+
 
 internal let kGOOGLE_APIKEY = "AIzaSyA6AYE6tkCG7kdalGnftIC9PaYbjTcPghw"
 

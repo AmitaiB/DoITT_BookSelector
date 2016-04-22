@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        //The network activity indicator will show and hide automatically as Alamofire requests start and complete.
+        NetworkActivityIndicatorManager.sharedManager.isEnabled = true
+        NetworkActivityIndicatorManager.sharedManager.startDelay = 0.0 // default is 1.0s, but that doesn't allow testing.
+
         return true
     }
 
