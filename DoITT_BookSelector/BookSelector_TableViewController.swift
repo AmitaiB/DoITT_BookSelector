@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal let kISBNDB_APIKEY = "7Q5L8NEB"
+internal let kGOOGLE_APIKEY = "AIzaSyA8N6BgJ5wZnUU5qf3x8MBZ_ZEP-8rCOn0"
 
 
 class BookSelector_TableViewController: UITableViewController {
