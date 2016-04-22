@@ -14,6 +14,7 @@ import AlamofireSwiftyJSON
 
 class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var searchString: String?
@@ -28,11 +29,15 @@ class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.alpha = 0
+        activityIndicator.alpha = 1
+        activityIndicator.startAnimating()
+        
         //Make Network request here.
         if let qString = searchString {
             requestGoogleBookListWithQuery(qString) { responseBookList in
                 guard let bookList = responseBookList else { return }
                 self.bookList = bookList
+                self.activityIndicator.stopAnimating()
             }
         } else {
             print("Error, malformed request string.")

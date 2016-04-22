@@ -128,6 +128,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5wS-lk-Qwl">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uhO-86-De8">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,14 +172,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uhO-86-De8" firstAttribute="leading" secondItem="ouF-b6-ceY" secondAttribute="leadingMargin" constant="-20" id="2LR-vk-yuZ"/>
+                            <constraint firstItem="5wS-lk-Qwl" firstAttribute="centerX" secondItem="ouF-b6-ceY" secondAttribute="centerX" id="2OT-QX-qVR"/>
                             <constraint firstItem="GoL-5L-IY8" firstAttribute="top" secondItem="uhO-86-De8" secondAttribute="bottom" id="8UP-hl-YOX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uhO-86-De8" secondAttribute="trailing" constant="-20" id="ign-vk-QLW"/>
                             <constraint firstItem="uhO-86-De8" firstAttribute="top" secondItem="Md0-UI-v2g" secondAttribute="bottom" constant="-44" id="ija-Xh-i3W"/>
+                            <constraint firstItem="5wS-lk-Qwl" firstAttribute="centerY" secondItem="ouF-b6-ceY" secondAttribute="centerY" id="qJT-yC-n5F"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="5wS-lk-Qwl" id="I1I-Ok-fPL"/>
                         <outlet property="tableView" destination="uhO-86-De8" id="Fav-o8-EJM"/>
                     </connections>
                 </viewController>
