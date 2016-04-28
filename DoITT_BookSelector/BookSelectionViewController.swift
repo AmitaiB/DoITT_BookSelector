@@ -11,11 +11,14 @@ import Alamofire
 import SwiftyJSON
 import AlamofireSwiftyJSON
 
+typealias GoogleBooksCompletion = [Book]? -> ()
+
 class BookSelectionViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
+    let maxResults = 20
     var searchString: String?
     var bookSelection: Book?
     var bookList = [Book]() {
@@ -31,21 +34,22 @@ class BookSelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.alpha = 1
         activityIndicator.startAnimating()
         
-        requestGoogleBookListWithQuery(searchString) { (responseBookList) in
-            guard let bookList = responseBookList else { return }
+        requestGoogleBookListWithQuery(searchString, results: maxResults) { (responseBookList) in
+            guard let bookList = responseBookList else {
+                return
+            }
             self.bookList = bookList
             self.activityIndicator.stopAnimating()
         }
     }
     
-    func requestGoogleBookListWithQuery(searchString: String?, withCompletion completion: ([Book]?)->()) {
+    func requestGoogleBookListWithQuery(searchString: String?, results: Int,  withCompletion completion: GoogleBooksCompletion) {
         guard let q = searchString else { fatalError(#function) }
         let params: [String: AnyObject] = ["q" : q,
                                            "langRestrict" : "en",
-                                           "maxResults" : 20,
+                                           "maxResults" : results,
                                            "printType" : "books",
                                            "orderBy" : "relevance"]
 
@@ -60,11 +64,11 @@ class BookSelectionViewController: UIViewController {
                 debugPrint(response.result.value)
                 var tempBookList = [Book]()
                 guard let json = response.result.value else { return }
-                for i in 1...10 {
+                for i in 1...self.maxResults {
                     let title = json["items"][i]["volumeInfo"]["title"].stringValue
                     let author = json["items"][i]["volumeInfo"]["authors"][0].stringValue
                     let description = json["items"][i]["volumeInfo"]["description"].stringValue
-
+                    
                     tempBookList.append(Book(title: title, author: author, description: description))
                 }
                 completion(tempBookList)
@@ -83,10 +87,6 @@ class BookSelectionViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension BookSelectionViewController: UITableViewDataSource {
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookList.count
