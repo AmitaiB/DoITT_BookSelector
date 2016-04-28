@@ -12,7 +12,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class BookSearchViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var titleDisplayLabel: UILabel!
