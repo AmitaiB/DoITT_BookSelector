@@ -6,6 +6,10 @@
 //  Copyright © 2016 Amitai Blickstein, LLC. All rights reserved.
 //
 
+// CLEAN:
+/**
+ *  This entity should be simple, at most, it should check for a title.
+ */
 import Foundation
 
 struct Book {
