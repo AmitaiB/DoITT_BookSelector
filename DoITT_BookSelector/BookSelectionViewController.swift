@@ -11,8 +11,7 @@ import Alamofire
 import SwiftyJSON
 import AlamofireSwiftyJSON
 
-
-class BookSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BookSelectionViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
@@ -41,7 +40,6 @@ class BookSelectionViewController: UIViewController, UITableViewDelegate, UITabl
             self.activityIndicator.stopAnimating()
         }
     }
-    
     
     func requestGoogleBookListWithQuery(searchString: String?, withCompletion completion: ([Book]?)->()) {
         guard let q = searchString else { fatalError(#function) }
@@ -73,16 +71,27 @@ class BookSelectionViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    // MARK: - UITableViewDataSource
+    // MARK: - Navigation
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            bookSelection = bookList[indexPath.row]
+        }
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension BookSelectionViewController: UITableViewDataSource {
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookList.count
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         let book = bookList[indexPath.row]
@@ -91,17 +100,4 @@ class BookSelectionViewController: UIViewController, UITableViewDelegate, UITabl
         cell.detailTextLabel?.text = book.description
         return cell
     }
-    
-    
-    // MARK: UITableView Delegate
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { fatalError(#function) }
-        bookSelection = bookList[indexPath.row]
-    }
-
 }

@@ -163,7 +163,6 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="hvZ-KE-QWh" id="1Kd-fN-P1w"/>
-                                    <outlet property="delegate" destination="hvZ-KE-QWh" id="YM8-Kg-d2y"/>
                                 </connections>
                             </tableView>
                         </subviews>
