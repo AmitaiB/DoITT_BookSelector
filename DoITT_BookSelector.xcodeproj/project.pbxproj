@@ -12,7 +12,7 @@
 		38C1D4031CC9A56300EF9015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4011CC9A56300EF9015 /* Main.storyboard */; };
 		38C1D4051CC9A56300EF9015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4041CC9A56300EF9015 /* Assets.xcassets */; };
 		38C1D4081CC9A56300EF9015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4061CC9A56300EF9015 /* LaunchScreen.storyboard */; };
-		38C1D4121CC9B5A100EF9015 /* BookSelector_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D4111CC9B5A100EF9015 /* BookSelector_TableViewController.swift */; };
+		38C1D4121CC9B5A100EF9015 /* BookSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D4111CC9B5A100EF9015 /* BookSelectionViewController.swift */; };
 		38C1D4151CC9DF1C00EF9015 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D4141CC9DF1C00EF9015 /* Book.swift */; };
 		DC48923DDC8BDC902FEEE090 /* Pods_DoITT_BookSelector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D85994F4185FFDE0C46ED0 /* Pods_DoITT_BookSelector.framework */; };
 /* End PBXBuildFile section */
@@ -25,7 +25,7 @@
 		38C1D4041CC9A56300EF9015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38C1D4071CC9A56300EF9015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38C1D4091CC9A56300EF9015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38C1D4111CC9B5A100EF9015 /* BookSelector_TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSelector_TableViewController.swift; sourceTree = "<group>"; };
+		38C1D4111CC9B5A100EF9015 /* BookSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSelectionViewController.swift; sourceTree = "<group>"; };
 		38C1D4141CC9DF1C00EF9015 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		394E3093AEDB893BBF351202 /* Pods-DoITT_BookSelector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoITT_BookSelector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoITT_BookSelector/Pods-DoITT_BookSelector.debug.xcconfig"; sourceTree = "<group>"; };
 		D91E433E066AD9A025BC4769 /* Pods-DoITT_BookSelector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoITT_BookSelector.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoITT_BookSelector/Pods-DoITT_BookSelector.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			children = (
 				38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */,
 				38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */,
-				38C1D4111CC9B5A100EF9015 /* BookSelector_TableViewController.swift */,
+				38C1D4111CC9B5A100EF9015 /* BookSelectionViewController.swift */,
 				38C1D4141CC9DF1C00EF9015 /* Book.swift */,
 				38C1D4011CC9A56300EF9015 /* Main.storyboard */,
 				38C1D4041CC9A56300EF9015 /* Assets.xcassets */,
@@ -217,7 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C1D4151CC9DF1C00EF9015 /* Book.swift in Sources */,
-				38C1D4121CC9B5A100EF9015 /* BookSelector_TableViewController.swift in Sources */,
+				38C1D4121CC9B5A100EF9015 /* BookSelectionViewController.swift in Sources */,
 				38C1D4001CC9A56300EF9015 /* BookSearchViewController.swift in Sources */,
 				38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */,
 			);

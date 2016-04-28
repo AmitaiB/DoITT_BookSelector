@@ -12,7 +12,7 @@ import SwiftyJSON
 import AlamofireSwiftyJSON
 
 
-class BookSelector_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BookSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
