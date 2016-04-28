@@ -5,7 +5,6 @@ use_frameworks!
 
 target 'DoITT_BookSelector' do
   pod 'Alamofire'
-  pod 'AlamofireNetworkActivityIndicator'
   pod 'SwiftyJSON'
   pod 'AlamofireSwiftyJSON', '~> 0.1'
 end

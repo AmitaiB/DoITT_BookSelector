@@ -85,13 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-DoITT_BookSelector/Alamofire.framework"
-  install_framework "Pods-DoITT_BookSelector/AlamofireNetworkActivityIndicator.framework"
   install_framework "Pods-DoITT_BookSelector/AlamofireSwiftyJSON.framework"
   install_framework "Pods-DoITT_BookSelector/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-DoITT_BookSelector/Alamofire.framework"
-  install_framework "Pods-DoITT_BookSelector/AlamofireNetworkActivityIndicator.framework"
   install_framework "Pods-DoITT_BookSelector/AlamofireSwiftyJSON.framework"
   install_framework "Pods-DoITT_BookSelector/SwiftyJSON.framework"
 fi
