@@ -35,21 +35,17 @@ class BookSelectionViewController: UIViewController, UITableViewDelegate, UITabl
         activityIndicator.alpha = 1
         activityIndicator.startAnimating()
         
-        //Make Network request here.
-        if let qString = searchString {
-            requestGoogleBookListWithQuery(qString) { responseBookList in
-                guard let bookList = responseBookList else { return }
-                self.bookList = bookList
-                self.activityIndicator.stopAnimating()
-            }
-        } else {
-            print("Error, malformed request string.")
+        requestGoogleBookListWithQuery(searchString) { (responseBookList) in
+            guard let bookList = responseBookList else { return }
+            self.bookList = bookList
+            self.activityIndicator.stopAnimating()
         }
     }
     
     
-    func requestGoogleBookListWithQuery(searchString: String, withCompletion completion: ([Book]?)->()) {
-        let params: [String: AnyObject] = ["q" : searchString,
+    func requestGoogleBookListWithQuery(searchString: String?, withCompletion completion: ([Book]?)->()) {
+        guard let q = searchString else { fatalError(#function) }
+        let params: [String: AnyObject] = ["q" : q,
                                            "langRestrict" : "en",
                                            "maxResults" : 20,
                                            "printType" : "books",
@@ -77,7 +73,7 @@ class BookSelectionViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
