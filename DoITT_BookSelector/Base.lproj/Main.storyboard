@@ -19,21 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for...??" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbU-uF-d8A" userLabel="Search Input TextField">
-                                <rect key="frame" x="189" y="84" width="222" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="222" id="eGc-ft-ciP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v45-X8-YLk">
-                                <rect key="frame" x="261" y="134" width="78" height="30"/>
-                                <state key="normal" title="Search Me!"/>
-                                <connections>
-                                    <segue destination="hvZ-KE-QWh" kind="show" identifier="BookSelectionSegueID" id="tzE-wZ-VMA"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-OL-hAR" userLabel="Title Label (static)">
                                 <rect key="frame" x="262" y="204" width="34" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -74,30 +59,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAd-Sf-u5w" userLabel="Description (outlet)">
-                                <rect key="frame" x="304" y="262" width="42" height="20.5"/>
+                                <rect key="frame" x="304" y="262" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="prominent" placeholder="Book Search Terms...?" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xzh-69-IUZ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <color key="barTintColor" red="0.0" green="0.62352941176470589" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EfP-OL-hAR" firstAttribute="top" secondItem="v45-X8-YLk" secondAttribute="bottom" constant="39.5" id="4W7-EN-3Ze"/>
+                            <constraint firstItem="EfP-OL-hAR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="140" id="35b-fu-4su"/>
                             <constraint firstItem="hS8-aO-e5s" firstAttribute="top" secondItem="Tgt-CF-fIa" secondAttribute="bottom" constant="8" id="8sc-C9-HRC"/>
                             <constraint firstItem="vEI-xQ-3gL" firstAttribute="top" secondItem="cL8-4f-Rcb" secondAttribute="bottom" constant="8" id="91V-d9-f1h"/>
                             <constraint firstItem="TAd-Sf-u5w" firstAttribute="top" secondItem="vEI-xQ-3gL" secondAttribute="top" id="ANQ-ce-i2I"/>
                             <constraint firstItem="Tgt-CF-fIa" firstAttribute="top" secondItem="EfP-OL-hAR" secondAttribute="top" id="BHW-Aa-YbS"/>
                             <constraint firstItem="cL8-4f-Rcb" firstAttribute="top" secondItem="EfP-OL-hAR" secondAttribute="bottom" constant="8" id="Cgj-UE-OJc"/>
-                            <constraint firstItem="mbU-uF-d8A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fdn-n9-e6Y"/>
                             <constraint firstItem="TAd-Sf-u5w" firstAttribute="top" secondItem="hS8-aO-e5s" secondAttribute="bottom" constant="8" id="Jwh-i8-gOg"/>
                             <constraint firstItem="vEI-xQ-3gL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="K6B-mi-Zcj"/>
                             <constraint firstItem="TAd-Sf-u5w" firstAttribute="leading" secondItem="vEI-xQ-3gL" secondAttribute="trailing" constant="8" id="LYd-ag-GUB"/>
-                            <constraint firstItem="mbU-uF-d8A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="999" constant="20" id="XTY-Bf-kHc"/>
                             <constraint firstItem="hS8-aO-e5s" firstAttribute="leading" secondItem="cL8-4f-Rcb" secondAttribute="trailing" constant="8" id="XuO-dk-1ry"/>
-                            <constraint firstItem="v45-X8-YLk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cFr-Mw-ucV"/>
                             <constraint firstItem="Tgt-CF-fIa" firstAttribute="leading" secondItem="EfP-OL-hAR" secondAttribute="trailing" constant="8" id="f9t-yv-fyp"/>
                             <constraint firstItem="EfP-OL-hAR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="fSz-2X-4Vg"/>
                             <constraint firstItem="hS8-aO-e5s" firstAttribute="top" secondItem="cL8-4f-Rcb" secondAttribute="top" id="l13-AK-cDL"/>
-                            <constraint firstItem="v45-X8-YLk" firstAttribute="top" secondItem="mbU-uF-d8A" secondAttribute="bottom" priority="999" constant="20" id="s5L-km-mxX"/>
                             <constraint firstItem="cL8-4f-Rcb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="zG7-5s-SMY"/>
                         </constraints>
                     </view>
@@ -105,8 +95,7 @@
                     <connections>
                         <outlet property="authorDisplayLabel" destination="hS8-aO-e5s" id="p7d-XW-RZU"/>
                         <outlet property="descriptionDisplayLabel" destination="TAd-Sf-u5w" id="RwU-3t-8Zd"/>
-                        <outlet property="searchButton" destination="v45-X8-YLk" id="1vs-Qb-8wc"/>
-                        <outlet property="searchField" destination="mbU-uF-d8A" id="DEc-2n-wbN"/>
+                        <outlet property="searchBar" destination="Xzh-69-IUZ" id="je3-Fh-dr8"/>
                         <outlet property="titleDisplayLabel" destination="Tgt-CF-fIa" id="NJO-GS-5JJ"/>
                     </connections>
                 </viewController>
@@ -198,6 +187,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="amS-gX-70p">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Aaa-RI-c0A"/>
                     </connections>

@@ -10,7 +10,7 @@ import UIKit
 
 class BookSearchViewController: UIViewController {
     
-    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var titleDisplayLabel: UILabel!
     @IBOutlet weak var authorDisplayLabel: UILabel!
@@ -37,5 +37,9 @@ class BookSearchViewController: UIViewController {
         authorDisplayLabel.text = bookSelectionVC.bookSelection?.author
         descriptionDisplayLabel.text = bookSelectionVC.bookSelection?.description
     }
+}
+
+extension BookSearchViewController: UISearchBarDelegate {
+    
 }
 
