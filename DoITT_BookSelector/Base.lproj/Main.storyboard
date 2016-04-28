@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Book Search View Controller-->
@@ -29,14 +28,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v45-X8-YLk">
-                                <rect key="frame" x="261" y="134" width="78" height="30.5"/>
+                                <rect key="frame" x="261" y="134" width="78" height="30"/>
                                 <state key="normal" title="Search Me!"/>
                                 <connections>
                                     <segue destination="hvZ-KE-QWh" kind="show" identifier="BookSelectionSegueID" id="tzE-wZ-VMA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-OL-hAR" userLabel="Title Label (static)">
-                                <rect key="frame" x="285" y="204" width="34" height="21"/>
+                                <rect key="frame" x="262" y="204" width="34" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -45,13 +44,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgt-CF-fIa" userLabel="Title (output)">
-                                <rect key="frame" x="327" y="204" width="42" height="21"/>
+                                <rect key="frame" x="304" y="204" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL8-4f-Rcb" userLabel="Author Label (static)">
-                                <rect key="frame" x="267" y="233" width="52" height="21"/>
+                                <rect key="frame" x="244" y="233" width="52" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -60,13 +59,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS8-aO-e5s" userLabel="Author (output)">
-                                <rect key="frame" x="327" y="233" width="42" height="21"/>
+                                <rect key="frame" x="304" y="233" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEI-xQ-3gL" userLabel="Description Label (static)">
-                                <rect key="frame" x="231" y="263" width="88" height="21"/>
+                                <rect key="frame" x="208" y="262" width="88" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -75,32 +74,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAd-Sf-u5w" userLabel="Description (outlet)">
-                                <rect key="frame" x="327" y="263.5" width="42" height="20.5"/>
+                                <rect key="frame" x="304" y="262" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hS8-aO-e5s" firstAttribute="top" secondItem="Tgt-CF-fIa" secondAttribute="bottom" constant="8" id="9fP-hG-i04"/>
-                            <constraint firstItem="hS8-aO-e5s" firstAttribute="leading" secondItem="cL8-4f-Rcb" secondAttribute="trailing" constant="8" id="DUK-ZV-y4v"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="lessThanOrEqual" secondItem="TAd-Sf-u5w" secondAttribute="bottom" constant="316" id="Ed4-w0-ZGQ"/>
+                            <constraint firstItem="EfP-OL-hAR" firstAttribute="top" secondItem="v45-X8-YLk" secondAttribute="bottom" constant="39.5" id="4W7-EN-3Ze"/>
+                            <constraint firstItem="hS8-aO-e5s" firstAttribute="top" secondItem="Tgt-CF-fIa" secondAttribute="bottom" constant="8" id="8sc-C9-HRC"/>
+                            <constraint firstItem="vEI-xQ-3gL" firstAttribute="top" secondItem="cL8-4f-Rcb" secondAttribute="bottom" constant="8" id="91V-d9-f1h"/>
+                            <constraint firstItem="TAd-Sf-u5w" firstAttribute="top" secondItem="vEI-xQ-3gL" secondAttribute="top" id="ANQ-ce-i2I"/>
+                            <constraint firstItem="Tgt-CF-fIa" firstAttribute="top" secondItem="EfP-OL-hAR" secondAttribute="top" id="BHW-Aa-YbS"/>
+                            <constraint firstItem="cL8-4f-Rcb" firstAttribute="top" secondItem="EfP-OL-hAR" secondAttribute="bottom" constant="8" id="Cgj-UE-OJc"/>
                             <constraint firstItem="mbU-uF-d8A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fdn-n9-e6Y"/>
-                            <constraint firstItem="vEI-xQ-3gL" firstAttribute="top" secondItem="cL8-4f-Rcb" secondAttribute="bottom" constant="9" id="Rky-8h-HUx"/>
-                            <constraint firstItem="TAd-Sf-u5w" firstAttribute="leading" secondItem="vEI-xQ-3gL" secondAttribute="trailing" constant="8" id="W33-cl-0Mf"/>
+                            <constraint firstItem="TAd-Sf-u5w" firstAttribute="top" secondItem="hS8-aO-e5s" secondAttribute="bottom" constant="8" id="Jwh-i8-gOg"/>
+                            <constraint firstItem="vEI-xQ-3gL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="K6B-mi-Zcj"/>
+                            <constraint firstItem="TAd-Sf-u5w" firstAttribute="leading" secondItem="vEI-xQ-3gL" secondAttribute="trailing" constant="8" id="LYd-ag-GUB"/>
                             <constraint firstItem="mbU-uF-d8A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="999" constant="20" id="XTY-Bf-kHc"/>
+                            <constraint firstItem="hS8-aO-e5s" firstAttribute="leading" secondItem="cL8-4f-Rcb" secondAttribute="trailing" constant="8" id="XuO-dk-1ry"/>
                             <constraint firstItem="v45-X8-YLk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cFr-Mw-ucV"/>
-                            <constraint firstItem="Tgt-CF-fIa" firstAttribute="centerY" secondItem="EfP-OL-hAR" secondAttribute="centerY" id="cNU-uN-eGe"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="TAd-Sf-u5w" secondAttribute="trailing" priority="999" constant="20" id="cP6-NP-5OX"/>
-                            <constraint firstItem="cL8-4f-Rcb" firstAttribute="top" secondItem="EfP-OL-hAR" secondAttribute="bottom" constant="8" id="eaQ-t7-rjX"/>
-                            <constraint firstItem="EfP-OL-hAR" firstAttribute="centerX" secondItem="v45-X8-YLk" secondAttribute="leading" constant="41" id="fs1-AW-Gdb"/>
-                            <constraint firstItem="vEI-xQ-3gL" firstAttribute="trailing" secondItem="cL8-4f-Rcb" secondAttribute="trailing" id="kZm-qk-O1s"/>
-                            <constraint firstItem="Tgt-CF-fIa" firstAttribute="leading" secondItem="EfP-OL-hAR" secondAttribute="trailing" constant="8" id="n1x-be-WnH"/>
-                            <constraint firstItem="TAd-Sf-u5w" firstAttribute="top" secondItem="hS8-aO-e5s" secondAttribute="bottom" constant="9" id="reT-Yd-8yf"/>
-                            <constraint firstItem="TAd-Sf-u5w" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" priority="999" constant="21" id="rzW-oq-lch"/>
+                            <constraint firstItem="Tgt-CF-fIa" firstAttribute="leading" secondItem="EfP-OL-hAR" secondAttribute="trailing" constant="8" id="f9t-yv-fyp"/>
+                            <constraint firstItem="EfP-OL-hAR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="fSz-2X-4Vg"/>
+                            <constraint firstItem="hS8-aO-e5s" firstAttribute="top" secondItem="cL8-4f-Rcb" secondAttribute="top" id="l13-AK-cDL"/>
                             <constraint firstItem="v45-X8-YLk" firstAttribute="top" secondItem="mbU-uF-d8A" secondAttribute="bottom" priority="999" constant="20" id="s5L-km-mxX"/>
-                            <constraint firstItem="EfP-OL-hAR" firstAttribute="top" secondItem="v45-X8-YLk" secondAttribute="bottom" constant="40" id="smL-1t-CHy"/>
-                            <constraint firstItem="cL8-4f-Rcb" firstAttribute="trailing" secondItem="EfP-OL-hAR" secondAttribute="trailing" id="vx2-pW-BcD"/>
+                            <constraint firstItem="cL8-4f-Rcb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="zG7-5s-SMY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qBf-Ez-WjY"/>
