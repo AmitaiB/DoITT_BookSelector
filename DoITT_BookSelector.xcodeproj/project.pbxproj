@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		384301041CD26C870039001A /* GoogleBooksAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301031CD26C870039001A /* GoogleBooksAPIClient.swift */; };
+		384301061CD2AE040039001A /* CommonRss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301051CD2AE040039001A /* CommonRss.swift */; };
 		38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */; };
 		38C1D4001CC9A56300EF9015 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */; };
 		38C1D4031CC9A56300EF9015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4011CC9A56300EF9015 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		384301031CD26C870039001A /* GoogleBooksAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleBooksAPIClient.swift; sourceTree = "<group>"; };
+		384301051CD2AE040039001A /* CommonRss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonRss.swift; sourceTree = "<group>"; };
 		38C1D3FA1CC9A56300EF9015 /* DoITT_BookSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoITT_BookSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */,
+				384301051CD2AE040039001A /* CommonRss.swift */,
 				38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */,
 				38C1D4111CC9B5A100EF9015 /* BookSelectionViewController.swift */,
 				38C1D4141CC9DF1C00EF9015 /* Book.swift */,
@@ -222,6 +225,7 @@
 				38C1D4151CC9DF1C00EF9015 /* Book.swift in Sources */,
 				38C1D4121CC9B5A100EF9015 /* BookSelectionViewController.swift in Sources */,
 				38C1D4001CC9A56300EF9015 /* BookSearchViewController.swift in Sources */,
+				384301061CD2AE040039001A /* CommonRss.swift in Sources */,
 				384301041CD26C870039001A /* GoogleBooksAPIClient.swift in Sources */,
 				38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */,
 			);
