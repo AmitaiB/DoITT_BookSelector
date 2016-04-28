@@ -27,9 +27,11 @@ class BookSearchViewController: UIViewController {
         didSet {
             if searchResults.isEmpty {
                 resultsTableView.hidden = true
+                view.alpha = 1.0
             } else {
                 resultsTableView.hidden = false
                 resultsTableView.reloadData()
+                view.alpha = 0.5
             }
         }
     }
@@ -49,8 +51,8 @@ extension BookSearchViewController: UITableViewDataSource {
         
         let thisBook = searchResults[indexPath.row]
         
-        cell.textLabel?.text = thisBook.title
-        cell.detailTextLabel?.text = thisBook.author
+        cell.textLabel?.text = thisBook.author
+        cell.detailTextLabel?.text = thisBook.title
         
         return cell
     }
@@ -64,12 +66,15 @@ extension BookSearchViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+        resultsTableView.hidden = true
         
         let thisBook = searchResults[indexPath.row]
         
         titleDisplayLabel.text = thisBook.title
         authorDisplayLabel.text = thisBook.author
         descriptionDisplayLabel.text = thisBook.description
+        
+        view.alpha = 1.0
     }
 }
 
@@ -95,6 +100,7 @@ extension BookSearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         resultsTableView.hidden = true
     }
+    
     
     // MARK: - Helpers
     
