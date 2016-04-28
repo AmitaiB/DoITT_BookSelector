@@ -6,36 +6,26 @@
 //  Copyright © 2016 Amitai Blickstein, LLC. All rights reserved.
 //
 
-/**
- This VC performs validation (non-empty string), and displays the selected info.
- */
-
 import UIKit
 
 class BookSearchViewController: UIViewController {
+    
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var titleDisplayLabel: UILabel!
     @IBOutlet weak var authorDisplayLabel: UILabel!
     @IBOutlet weak var descriptionDisplayLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if sender === searchButton && searchField.text?.characters.count == 0 {
-            searchField.placeholder = "Search string??"
+        if sender === searchButton && searchField.text!.isEmpty {
             return false
+        } else {
+            return true
         }
-        searchField.placeholder = nil
-        return true
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toBookSelectionSegueID" {
+        if segue.identifier == "BookSelectionSegueID" {
             let bookSelectorVC = segue.destinationViewController as! BookSelectionViewController
             bookSelectorVC.searchString = searchField.text
         }
