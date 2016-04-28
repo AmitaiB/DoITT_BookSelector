@@ -15,20 +15,13 @@ class BookSearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsTableView: UITableView!
     var searchResults = [Book]()
-    
+    let apiClient = GoogleBooksAPIClient.sharedAPIClient
+    let maxResults = 20
     
     
     @IBOutlet weak var titleDisplayLabel: UILabel!
     @IBOutlet weak var authorDisplayLabel: UILabel!
     @IBOutlet weak var descriptionDisplayLabel: UILabel!
-    
-    
-    @IBAction func displaySelectionInMainViewController(segue: UIStoryboardSegue) {
-        let bookSelectionVC = segue.sourceViewController as! BookSelectionViewController
-        titleDisplayLabel.text = bookSelectionVC.bookSelection?.title
-        authorDisplayLabel.text = bookSelectionVC.bookSelection?.author
-        descriptionDisplayLabel.text = bookSelectionVC.bookSelection?.description
-    }
 }
 
 // MARK: - UITableViewDataSource

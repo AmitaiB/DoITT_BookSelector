@@ -22,9 +22,9 @@ class BookSelectionViewController: UIViewController {
     var bookList = [Book]() {
         didSet {
             if bookList.isEmpty {
-                tableView.alpha = 0
+                tableView.hidden = true
             } else {
-                tableView.alpha = 1
+                tableView.hidden = false
                 tableView.reloadData()
             }
         }
