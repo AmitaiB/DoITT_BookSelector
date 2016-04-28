@@ -62,7 +62,9 @@ extension BookSearchViewController: UITableViewDelegate {
         
         let thisBook = searchResults[indexPath.row]
         
-        /// TODO: Send thisBook's data to be displayed here
+        titleDisplayLabel.text = thisBook.title
+        authorDisplayLabel.text = thisBook.author
+        descriptionDisplayLabel.text = thisBook.description
     }
 }
 
