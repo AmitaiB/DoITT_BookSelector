@@ -12,16 +12,27 @@ internal let kSearchResultsCellReuseID = "searchResultsCellReuseID"
 
 class BookSearchViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var resultsTableView: UITableView!
-    var searchResults = [Book]()
-    let apiClient = GoogleBooksAPIClient.sharedAPIClient
-    let maxResults = 20
-    
-    
     @IBOutlet weak var titleDisplayLabel: UILabel!
     @IBOutlet weak var authorDisplayLabel: UILabel!
     @IBOutlet weak var descriptionDisplayLabel: UILabel!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var resultsTableView: UITableView!
+    
+    let apiClient = GoogleBooksAPIClient.sharedAPIClient
+    let maxResults = 20
+    let timeoutInterval = 5.0
+    var searchResults = [Book]() {
+        didSet {
+            if searchResults.isEmpty {
+                resultsTableView.hidden = true
+            } else {
+                resultsTableView.hidden = false
+                resultsTableView.reloadData()
+            }
+        }
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -73,7 +84,7 @@ extension BookSearchViewController: UISearchBarDelegate {
         if !searchText.isEmpty {
             resultsTableView.hidden = false
             
-            /// TODO: Network call for search query string -> update dataSource obj in completion, reloadData
+            populateDataSourceFromNetworkCall(withSearchString: searchText)
         }
     }
     
@@ -86,7 +97,25 @@ extension BookSearchViewController: UISearchBarDelegate {
     
     // MARK: - Helpers
     
-    func handleSearchError(error: NSError) {
+    func populateDataSourceFromNetworkCall(withSearchString searchString: String) {
+        //        activityIndicator.startAnimating()
+        apiClient.setTimeoutInterval(timeoutInterval)
+        apiClient.maxResults = maxResults
+        
+        apiClient.requestGoogleBookListWithQuery(searchString) { json in
+            var tempBookList = [Book]()
+            for i in 1...self.maxResults {
+                let title       = json["items"][i]["volumeInfo"]["title"].stringValue
+                let author      = json["items"][i]["volumeInfo"]["authors"][0].stringValue
+                let description = json["items"][i]["volumeInfo"]["description"].stringValue
+                tempBookList.append(Book(withTitle: title, author: author, description: description))
+            }
+            self.searchResults = tempBookList
+//            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func handleSearchError(error: NSError, message: String) {
         let alert = UIAlertController(title: "Error",
                                       message: error.localizedDescription,
                                       preferredStyle: .Alert)

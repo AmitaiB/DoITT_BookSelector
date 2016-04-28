@@ -52,4 +52,8 @@ class GoogleBooksAPIClient {
                 completion(json)
         }
     }
+    
+    func setTimeoutInterval(interval: NSTimeInterval) {
+        Alamofire.Manager.sharedInstance.session.configuration.timeoutIntervalForRequest = interval
+    }
 }
