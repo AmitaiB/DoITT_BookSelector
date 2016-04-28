@@ -6,10 +6,6 @@
 //  Copyright © 2016 Amitai Blickstein, LLC. All rights reserved.
 //
 
-// CLEAN:
-/**
- *  This entity should be simple, at most, it should check for a title.
- */
 import Foundation
 
 struct Book {
@@ -24,34 +20,6 @@ struct Book {
         }
         if let unwrappedDescription = aDescripton {
             description = unwrappedDescription
-        }
-    }
-    
-    init?(withGoogleJSONResponse response: [String: AnyObject], bookNumber: Int = 0) {
-        // First, drill down to the VolumeInfo
-        guard let books = response["items"] as? [AnyObject] else { return nil }
-        guard let book = books[bookNumber] as? [String: AnyObject] else { return nil }
-        guard let volumeInfo = book["volumeInfo"] as? [String: AnyObject] else { return nil }
-        
-        // Next, get this book's info
-        // Title - required
-        guard let aTitle = volumeInfo["title"] as? String else { return nil}
-        title = aTitle
-        
-        // Author - optional
-        if let authors = volumeInfo["authors"] as? [String] {
-            if let firstAuthor = authors.first {
-                author = firstAuthor
-            }
-        } else {
-            author = "No data"
-        }
-        
-        // Description - optional
-        if let aDescription = volumeInfo["description"] as? String {
-            description = aDescription
-        } else {
-            description = "No description"
         }
     }
 }
