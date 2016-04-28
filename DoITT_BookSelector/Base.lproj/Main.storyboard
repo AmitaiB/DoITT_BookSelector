@@ -105,10 +105,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="nob-AJ-2x7"/>
                                 </connections>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YF3-jD-rZa">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EfP-OL-hAR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="140" id="35b-fu-4su"/>
+                            <constraint firstItem="YF3-jD-rZa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6yn-vh-CkQ"/>
                             <constraint firstItem="hS8-aO-e5s" firstAttribute="top" secondItem="Tgt-CF-fIa" secondAttribute="bottom" constant="9" id="8sc-C9-HRC"/>
                             <constraint firstItem="vEI-xQ-3gL" firstAttribute="top" secondItem="cL8-4f-Rcb" secondAttribute="bottom" constant="8" id="91V-d9-f1h"/>
                             <constraint firstItem="TAd-Sf-u5w" firstAttribute="top" secondItem="vEI-xQ-3gL" secondAttribute="top" constant="-1" id="ANQ-ce-i2I"/>
@@ -121,6 +125,7 @@
                             <constraint firstItem="TAd-Sf-u5w" firstAttribute="leading" secondItem="vEI-xQ-3gL" secondAttribute="trailing" constant="8" id="LYd-ag-GUB"/>
                             <constraint firstItem="axo-6p-0TY" firstAttribute="top" secondItem="Xzh-69-IUZ" secondAttribute="bottom" id="MAQ-hV-Kxm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xzh-69-IUZ" secondAttribute="trailing" constant="-20" id="UaZ-xj-A2q"/>
+                            <constraint firstItem="YF3-jD-rZa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VMg-Ml-HZ4"/>
                             <constraint firstItem="Xzh-69-IUZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VeV-J2-9e7"/>
                             <constraint firstItem="hS8-aO-e5s" firstAttribute="leading" secondItem="cL8-4f-Rcb" secondAttribute="trailing" constant="8" id="XuO-dk-1ry"/>
                             <constraint firstItem="axo-6p-0TY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Ysr-tE-KxX"/>
@@ -133,6 +138,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qBf-Ez-WjY"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="YF3-jD-rZa" id="oDJ-fb-8ee"/>
                         <outlet property="authorDisplayLabel" destination="hS8-aO-e5s" id="p7d-XW-RZU"/>
                         <outlet property="descriptionDisplayLabel" destination="TAd-Sf-u5w" id="RwU-3t-8Zd"/>
                         <outlet property="resultsTableView" destination="axo-6p-0TY" id="SR0-Gf-mzk"/>
