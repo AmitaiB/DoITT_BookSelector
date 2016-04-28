@@ -21,14 +21,17 @@ class BookSelectionViewController: UIViewController, UITableViewDelegate, UITabl
     var bookSelection: Book?
     var bookList = [Book]() {
         didSet {
-            tableView.alpha = (bookList.count == 0) ? 0 : 1
-            tableView.reloadData()
+            if bookList.isEmpty {
+                tableView.alpha = 0
+            } else {
+                tableView.alpha = 1
+                tableView.reloadData()
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.alpha = 0
         activityIndicator.alpha = 1
         activityIndicator.startAnimating()
         
