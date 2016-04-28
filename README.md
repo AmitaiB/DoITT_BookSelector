@@ -9,6 +9,7 @@ The current implementation tries to be more user-centric:
 * UX improvement: single VC, rather than two
 * UX: pull down menu for selecting results
 * UX: real-time search results
+* UX: App Icon!
 
 Code Improvements:
 * Best Practices: Moves delegates to protocol extensions, a la Apple Docs' recommendation
