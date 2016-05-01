@@ -60,7 +60,6 @@ extension BookSearchViewController: UITableViewDataSource {
         
         let thisBook = searchResults[indexPath.row]
         
-        
         cell.textLabel?.text = thisBook.author
         cell.detailTextLabel?.text = thisBook.title
         
@@ -78,7 +77,7 @@ extension BookSearchViewController: UITableViewDelegate {
         searchBar.resignFirstResponder()
         resultsTableView.hidden = true
         
-        let thisBook = searchResults[indexPath.row]
+        let thisBook = searchResults[indexPath.row].selfWithUILabelShift()
         
         titleDisplayLabel.text = thisBook.title
         authorDisplayLabel.text = thisBook.author

@@ -26,4 +26,9 @@ struct Book {
             description = unwrappedDescription
         }
     }
+    
+    /// Returns a copy of the Book, with a single space of padding for each property (string).
+    func selfWithUILabelShift() -> Book {
+        return Book(withTitle: " \(title) ", author: " \(author) ", description: " \(description) ")
+    }
 }
