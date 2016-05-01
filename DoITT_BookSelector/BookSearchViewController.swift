@@ -40,10 +40,8 @@ class BookSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, descriptionDisplayLabel],
-                            byAmount: displayLabelCornerRadius)
+        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, descriptionDisplayLabel], byAmount: displayLabelCornerRadius)
     }
-    
 }
 
 
@@ -124,7 +122,10 @@ extension BookSearchViewController: UISearchBarDelegate {
                 let title       = json["items"][i]["volumeInfo"]["title"].stringValue
                 let author      = json["items"][i]["volumeInfo"]["authors"][0].stringValue
                 let description = json["items"][i]["volumeInfo"]["description"].stringValue
-                tempBookList.append(Book(withTitle: title, author: author, description: description))
+                
+                if !title.isEmpty {
+                    tempBookList.append(Book(withTitle: title, author: author, description: description))
+                }
             }
             self.searchResults = tempBookList
             self.activityIndicator.stopAnimating()
