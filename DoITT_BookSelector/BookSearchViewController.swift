@@ -60,7 +60,6 @@ extension BookSearchViewController: UITableViewDataSource {
         
         let thisBook = searchResults[indexPath.row]
         
-        
         cell.textLabel?.text = thisBook.author
         cell.detailTextLabel?.text = thisBook.title
         
