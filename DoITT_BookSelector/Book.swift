@@ -10,20 +10,20 @@ import Foundation
 
 struct Book {
     var title: String! //A book must have a title
-    var author: String! = "No data"
-    var description: String! = "No description"
+    var author: String! = " No data "
+    var description: String! = " No description "
     
     func allProperties() -> [String] {
         return [title, author, description]
     }
     
     init(withTitle aTitle: String, author anAuthor: String?, description aDescripton: String?) {
-        title = aTitle
+        title = " \(aTitle) "
         if let unwrappedAuthor = anAuthor {
-            author = unwrappedAuthor
+            author = " \(unwrappedAuthor) "
         }
         if let unwrappedDescription = aDescripton {
-            description = unwrappedDescription
+            description = " \(unwrappedDescription) "
         }
     }
     
