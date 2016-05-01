@@ -22,6 +22,7 @@ class BookSearchViewController: UIViewController {
     
     let apiClient = GoogleBooksAPIClient.sharedAPIClient
     let maxResults = 20
+    let displayLabelCornerRadius: CGFloat = 5
     let timeoutInterval = 5.0
     var searchResults = [Book]() {
         didSet {
@@ -35,8 +36,16 @@ class BookSearchViewController: UIViewController {
             }
         }
     }
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, descriptionDisplayLabel],
+                            byAmount: displayLabelCornerRadius)
+    }
     
 }
+
 
 // MARK: - UITableViewDataSource
 
@@ -50,6 +59,7 @@ extension BookSearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(kSearchResultsCellReuseID, forIndexPath: indexPath)
         
         let thisBook = searchResults[indexPath.row]
+        
         
         cell.textLabel?.text = thisBook.author
         cell.detailTextLabel?.text = thisBook.title
@@ -131,5 +141,12 @@ extension BookSearchViewController: UISearchBarDelegate {
                                          handler: nil)
         alert.addAction(cancelAction)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func roundCornersOfViews(views: [UIView], byAmount radius: CGFloat) {
+        for view in views {
+            view.layer.cornerRadius = radius
+            view.clipsToBounds = true
+        }
     }
 }

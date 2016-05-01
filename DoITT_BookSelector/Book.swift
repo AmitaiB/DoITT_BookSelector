@@ -13,6 +13,10 @@ struct Book {
     var author: String! = "No data"
     var description: String! = "No description"
     
+    func allProperties() -> [String] {
+        return [title, author, description]
+    }
+    
     init(withTitle aTitle: String, author anAuthor: String?, description aDescripton: String?) {
         title = aTitle
         if let unwrappedAuthor = anAuthor {
