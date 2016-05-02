@@ -8,6 +8,13 @@
 
 import UIKit
 
+// errors
+public func DBLG() {
+    print("*** error in \(#function)(ln. \(#line))")
+}
+
+let DBLG = print("*** error in \(#function)(ln. \(#line))")
+
 // colors
 
  /// For active backgrounds (in switches, scrollviews, etc.)

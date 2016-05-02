@@ -50,6 +50,8 @@ struct GBook: Book {
         
         // Books must have titles.
         if title.isEmpty { return nil }
+        if author.isEmpty { author = defaultAuthor }
+        if description.isEmpty { description = defaultAuthor }
     }
     
     func allProperties() -> [String] {
