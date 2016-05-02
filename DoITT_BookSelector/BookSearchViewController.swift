@@ -75,7 +75,7 @@ extension BookSearchViewController: UITableViewDelegate {
         searchBar.resignFirstResponder()
         resultsTableView.hidden = true
         
-        let thisBook = searchResults[indexPath.row].selfWithUILabelShift()
+        let thisBook = searchResults[indexPath.row].copyForUILabel()
         
         titleDisplayLabel.text = thisBook.title
         authorDisplayLabel.text = thisBook.author
@@ -119,12 +119,8 @@ extension BookSearchViewController: UISearchBarDelegate {
         apiClient.requestGoogleBookListWithQuery(searchString) { json in
             var tempBookList = [Book]()
             for i in 1...self.maxResults {
-                let title       = json["items"][i]["volumeInfo"]["title"].stringValue
-                let author      = json["items"][i]["volumeInfo"]["authors"][0].stringValue
-                let description = json["items"][i]["volumeInfo"]["description"].stringValue
-                
-                if !title.isEmpty {
-                    tempBookList.append(Book(withTitle: title, author: author, description: description))
+                if let newBook = GBook(withGoogleVolumeResponse: json, withOptions: [kIndexKey: i]) {
+                    tempBookList.append(newBook)
                 }
             }
             self.searchResults = tempBookList

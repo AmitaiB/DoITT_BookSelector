@@ -8,27 +8,10 @@
 
 import Foundation
 
-struct Book {
-    var title: String! //A book must have a title
-    var author: String! = " No data "
-    var description: String! = " No description "
+protocol Book {
+    var title: String { get set }
+    var author: String { get set }
+    var description: String { get set }
     
-    func allProperties() -> [String] {
-        return [title, author, description]
-    }
-    
-    init(withTitle aTitle: String, author anAuthor: String?, description aDescripton: String?) {
-        title = " \(aTitle) "
-        if let unwrappedAuthor = anAuthor {
-            author = " \(unwrappedAuthor) "
-        }
-        if let unwrappedDescription = aDescripton {
-            description = " \(unwrappedDescription) "
-        }
-    }
-    
-    /// Returns a copy of the Book, with a single space of padding for each property (string).
-    func selfWithUILabelShift() -> Book {
-        return Book(withTitle: " \(title) ", author: " \(author) ", description: " \(description) ")
-    }
+    func copyForUILabel() -> Book
 }

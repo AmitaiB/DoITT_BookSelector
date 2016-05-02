@@ -10,6 +10,7 @@
 		384301041CD26C870039001A /* GoogleBooksAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301031CD26C870039001A /* GoogleBooksAPIClient.swift */; };
 		384301061CD2AE040039001A /* CommonRss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301051CD2AE040039001A /* CommonRss.swift */; };
 		384301081CD2B4570039001A /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301071CD2B4570039001A /* UIColor+FromHex.swift */; };
+		387005B41CD7A3D900B74DC3 /* GBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387005B31CD7A3D900B74DC3 /* GBook.swift */; };
 		38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */; };
 		38C1D4001CC9A56300EF9015 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */; };
 		38C1D4031CC9A56300EF9015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C1D4011CC9A56300EF9015 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		384301031CD26C870039001A /* GoogleBooksAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleBooksAPIClient.swift; sourceTree = "<group>"; };
 		384301051CD2AE040039001A /* CommonRss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonRss.swift; sourceTree = "<group>"; };
 		384301071CD2B4570039001A /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
+		387005B31CD7A3D900B74DC3 /* GBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBook.swift; sourceTree = "<group>"; };
 		38C1D3FA1CC9A56300EF9015 /* DoITT_BookSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoITT_BookSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +50,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		387005B51CD7A3E300B74DC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				38C1D4141CC9DF1C00EF9015 /* Book.swift */,
+				387005B31CD7A3D900B74DC3 /* GBook.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		387005B61CD7A3EF00B74DC3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				384301031CD26C870039001A /* GoogleBooksAPIClient.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		387005B71CD7A40700B74DC3 /* NSBoilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */,
+				38C1D4041CC9A56300EF9015 /* Assets.xcassets */,
+				38C1D4061CC9A56300EF9015 /* LaunchScreen.storyboard */,
+				38C1D4091CC9A56300EF9015 /* Info.plist */,
+			);
+			name = NSBoilerplate;
+			sourceTree = "<group>";
+		};
+		387005B81CD7A42E00B74DC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				384301071CD2B4570039001A /* UIColor+FromHex.swift */,
+				384301051CD2AE040039001A /* CommonRss.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		387005B91CD7A43E00B74DC3 /* Views/Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38C1D4011CC9A56300EF9015 /* Main.storyboard */,
+				38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */,
+			);
+			name = Views/Controllers;
+			sourceTree = "<group>";
+		};
 		38C1D3F11CC9A56300EF9015 = {
 			isa = PBXGroup;
 			children = (
@@ -69,16 +117,11 @@
 		38C1D3FC1CC9A56300EF9015 /* DoITT_BookSelector */ = {
 			isa = PBXGroup;
 			children = (
-				38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */,
-				384301051CD2AE040039001A /* CommonRss.swift */,
-				38C1D3FF1CC9A56300EF9015 /* BookSearchViewController.swift */,
-				38C1D4141CC9DF1C00EF9015 /* Book.swift */,
-				384301031CD26C870039001A /* GoogleBooksAPIClient.swift */,
-				38C1D4011CC9A56300EF9015 /* Main.storyboard */,
-				384301071CD2B4570039001A /* UIColor+FromHex.swift */,
-				38C1D4041CC9A56300EF9015 /* Assets.xcassets */,
-				38C1D4061CC9A56300EF9015 /* LaunchScreen.storyboard */,
-				38C1D4091CC9A56300EF9015 /* Info.plist */,
+				387005B71CD7A40700B74DC3 /* NSBoilerplate */,
+				387005B91CD7A43E00B74DC3 /* Views/Controllers */,
+				387005B51CD7A3E300B74DC3 /* Models */,
+				387005B61CD7A3EF00B74DC3 /* Networking */,
+				387005B81CD7A42E00B74DC3 /* Resources */,
 			);
 			path = DoITT_BookSelector;
 			sourceTree = "<group>";
@@ -223,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C1D4151CC9DF1C00EF9015 /* Book.swift in Sources */,
+				387005B41CD7A3D900B74DC3 /* GBook.swift in Sources */,
 				38C1D4001CC9A56300EF9015 /* BookSearchViewController.swift in Sources */,
 				384301081CD2B4570039001A /* UIColor+FromHex.swift in Sources */,
 				384301061CD2AE040039001A /* CommonRss.swift in Sources */,

@@ -26,7 +26,9 @@ class GoogleBooksAPIClient {
     /**
      Hits the GoogleBooks API, sends the result to completion handler.
      
-     - parameter searchString: The robust Google engine can apparantly handle any book metadata field (e.g., author, pub date, title). Returns immediately for null or empty strings. The default handler returns an Array of Book objects from the JSON response.
+     - parameter searchString: **(1)** The robust Google engine can apparantly handle any book metadata field (e.g., author, pub date, title). 
+     **(2)** Returns immediately for null or empty strings. 
+     **(3)** The default handler returns an Array of Book objects from the JSON response.
      */
     func requestGoogleBookListWithQuery(searchString: String?, completion: GoogleBooksCompletion) {
         
