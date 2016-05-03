@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal let kSearchResultsCellReuseID = "searchResultsCellReuseID"
+private let kSearchResultsCellReuseID = "searchResultsCellReuseID"
 
 class BookSearchViewController: UIViewController {
     
@@ -21,11 +21,11 @@ class BookSearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsTableView: UITableView!
     
-    let apiClient = GoogleBooksAPIClient.sharedAPIClient
-    let maxResults = 20
-    let displayLabelCornerRadius: CGFloat = 5
-    let timeoutInterval = 5.0
-    var searchResults = [Book]() {
+    private let apiClient = GoogleBooksAPIClient.sharedAPIClient
+    private let maxResults = 20
+    private let displayLabelCornerRadius: CGFloat = 5
+    private let timeoutInterval = 5.0
+    private var searchResults = [Book]() {
         didSet {
             if searchResults.isEmpty {
                 resultsTableView.hidden = true
@@ -41,7 +41,7 @@ class BookSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, descriptionDisplayLabel], byAmount: displayLabelCornerRadius)
+        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, descriptionDisplayLabel, longDescriptionView], byAmount: displayLabelCornerRadius)
     }
 }
 
@@ -81,6 +81,7 @@ extension BookSearchViewController: UITableViewDelegate {
         titleDisplayLabel.text = " " + thisBook.title + " "
         authorDisplayLabel.text = " " + thisBook.author + " "
         descriptionDisplayLabel.text = " " + thisBook.description + " "
+        longDescriptionView.text = " " + thisBook.description + " "
         
         view.alpha = 1.0
     }
