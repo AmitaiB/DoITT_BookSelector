@@ -14,7 +14,6 @@ class BookSearchViewController: UIViewController {
     
     @IBOutlet weak var titleDisplayLabel: UILabel!
     @IBOutlet weak var authorDisplayLabel: UILabel!
-    @IBOutlet weak var descriptionDisplayLabel: UILabel!
     
     @IBOutlet weak var longDescriptionView: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -41,7 +40,14 @@ class BookSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, descriptionDisplayLabel, longDescriptionView], byAmount: displayLabelCornerRadius)
+        roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, longDescriptionView], byAmount: displayLabelCornerRadius)
+        navigationController?.navigationBar.backgroundColor = onyxBlackColor
+        navigationController?.navigationBarHidden = false
+        navigationController?.toolbar.backgroundColor = onyxBlackColor
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
 
@@ -80,7 +86,7 @@ extension BookSearchViewController: UITableViewDelegate {
         
         titleDisplayLabel.text = " " + thisBook.title + " "
         authorDisplayLabel.text = " " + thisBook.author + " "
-        descriptionDisplayLabel.text = " " + thisBook.description + " "
+//        descriptionDisplayLabel.text = " " + thisBook.description + " "
         longDescriptionView.text = " " + thisBook.description + " "
         
         view.alpha = 1.0
