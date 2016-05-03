@@ -1,5 +1,5 @@
 //
-//  CommonRss.swift
+//  CommonResources.swift
 //  DoITT_BookSelector
 //
 //  Created by Amitai Blickstein on 4/28/16.
@@ -9,11 +9,9 @@
 import UIKit
 
 // errors
-public func DBLG() {
-    print("*** error in \(#function)(ln. \(#line))")
+internal func DBLG(thisFunction: AnyObject) {
+    print("*** error in \(thisFunction)  (ln. \(#line))***")
 }
-
-let DBLG = print("*** error in \(#function)(ln. \(#line))")
 
 // colors
 

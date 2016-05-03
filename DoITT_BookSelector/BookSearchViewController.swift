@@ -16,6 +16,7 @@ class BookSearchViewController: UIViewController {
     @IBOutlet weak var authorDisplayLabel: UILabel!
     @IBOutlet weak var descriptionDisplayLabel: UILabel!
     
+    @IBOutlet weak var longDescriptionView: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsTableView: UITableView!
@@ -75,11 +76,11 @@ extension BookSearchViewController: UITableViewDelegate {
         searchBar.resignFirstResponder()
         resultsTableView.hidden = true
         
-        let thisBook = searchResults[indexPath.row].copyForUILabel()
+        let thisBook = searchResults[indexPath.row]
         
-        titleDisplayLabel.text = thisBook.title
-        authorDisplayLabel.text = thisBook.author
-        descriptionDisplayLabel.text = thisBook.description
+        titleDisplayLabel.text = " " + thisBook.title + " "
+        authorDisplayLabel.text = " " + thisBook.author + " "
+        descriptionDisplayLabel.text = " " + thisBook.description + " "
         
         view.alpha = 1.0
     }

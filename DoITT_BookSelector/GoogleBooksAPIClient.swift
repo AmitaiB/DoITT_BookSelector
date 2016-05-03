@@ -33,8 +33,7 @@ class GoogleBooksAPIClient {
     func requestGoogleBookListWithQuery(searchString: String?, completion: GoogleBooksCompletion) {
         
         guard let q = searchString else {
-            DBLG
-            print("*** error with \(self.dynamicType) in \(#function)")
+            DBLG(#function)
             return
         }
         

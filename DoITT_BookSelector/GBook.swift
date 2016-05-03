@@ -20,8 +20,8 @@ struct GBook: Book {
     var author: String
     var description: String
     
-    let defaultAuthor = " No data "
-    let defaultDescription  = " No description "
+    let defaultAuthor = ""
+    let defaultDescription  = ""
     
     init(withTitle aTitle: String, author anAuthor: String?, description aDescripton: String?) {
         title = " \(aTitle) "
@@ -49,18 +49,13 @@ struct GBook: Book {
         description = json["items"][i]["volumeInfo"]["description"].stringValue
         
         // Books must have titles.
-        if title.isEmpty { return nil }
+        if title.isEmpty { DBLG(#function); return nil }
         if author.isEmpty { author = defaultAuthor }
         if description.isEmpty { description = defaultAuthor }
     }
     
     func allProperties() -> [String] {
         return [title, author, description]
-    }
-
-    /// Returns a copy of the Book, with a single space of padding for each property (string).
-    func copyForUILabel() -> Book {
-        return GBook(withTitle: " \(title) ", author: " \(author) ", description: " \(description) ")
     }
 }
 

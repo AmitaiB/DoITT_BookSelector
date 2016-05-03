@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		384301041CD26C870039001A /* GoogleBooksAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301031CD26C870039001A /* GoogleBooksAPIClient.swift */; };
-		384301061CD2AE040039001A /* CommonRss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301051CD2AE040039001A /* CommonRss.swift */; };
+		384301061CD2AE040039001A /* CommonResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301051CD2AE040039001A /* CommonResources.swift */; };
 		384301081CD2B4570039001A /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384301071CD2B4570039001A /* UIColor+FromHex.swift */; };
 		387005B41CD7A3D900B74DC3 /* GBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387005B31CD7A3D900B74DC3 /* GBook.swift */; };
 		38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1D3FD1CC9A56300EF9015 /* AppDelegate.swift */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		384301031CD26C870039001A /* GoogleBooksAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleBooksAPIClient.swift; sourceTree = "<group>"; };
-		384301051CD2AE040039001A /* CommonRss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonRss.swift; sourceTree = "<group>"; };
+		384301051CD2AE040039001A /* CommonResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonResources.swift; sourceTree = "<group>"; };
 		384301071CD2B4570039001A /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		387005B31CD7A3D900B74DC3 /* GBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBook.swift; sourceTree = "<group>"; };
 		38C1D3FA1CC9A56300EF9015 /* DoITT_BookSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoITT_BookSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				384301071CD2B4570039001A /* UIColor+FromHex.swift */,
-				384301051CD2AE040039001A /* CommonRss.swift */,
+				384301051CD2AE040039001A /* CommonResources.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 				387005B41CD7A3D900B74DC3 /* GBook.swift in Sources */,
 				38C1D4001CC9A56300EF9015 /* BookSearchViewController.swift in Sources */,
 				384301081CD2B4570039001A /* UIColor+FromHex.swift in Sources */,
-				384301061CD2AE040039001A /* CommonRss.swift in Sources */,
+				384301061CD2AE040039001A /* CommonResources.swift in Sources */,
 				384301041CD26C870039001A /* GoogleBooksAPIClient.swift in Sources */,
 				38C1D3FE1CC9A56300EF9015 /* AppDelegate.swift in Sources */,
 			);
