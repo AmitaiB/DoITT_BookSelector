@@ -12,4 +12,5 @@ protocol Book {
     var title: String { get set }
     var author: String { get set }
     var description: String { get set }
+    var imageURL: String? { get set }
 }

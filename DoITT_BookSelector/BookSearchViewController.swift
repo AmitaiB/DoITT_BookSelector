@@ -91,12 +91,15 @@ extension BookSearchViewController: UITableViewDelegate {
         
         titleDisplayLabel.text = " " + thisBook.title + " "
         authorDisplayLabel.text = " " + thisBook.author + " "
-//        descriptionDisplayLabel.text = " " + thisBook.description + " "
         longDescriptionView.text = " " + thisBook.description + " "
         
         // Add image
-        let bookImageView = UIImageView(frame: CGRectZero)
-        bookImageView
+        if let imageString = thisBook.imageURL, let bookImageURL = NSURL(string: imageString) {
+            let bookImageView = UIImageView(frame: CGRectZero)
+            longDescriptionView.addSubview(bookImageView)
+            bookImageView.af_setImageWithURL(bookImageURL)
+        }
+        
         
         view.alpha = 1.0
     }
