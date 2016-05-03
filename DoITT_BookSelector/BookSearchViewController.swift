@@ -97,9 +97,14 @@ extension BookSearchViewController: UITableViewDelegate {
         // Add image
         if let imageString = thisBook.imageURL, let bookImageURL = NSURL(string: imageString) {
             let bookImageView = UIImageView()
+            bookImageView.backgroundColor = UIColor.orangeColor()
             longDescriptionView.addSubview(bookImageView)
-            bookImageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 1, height: 1))
+            longDescriptionView.bringSubviewToFront(bookImageView)
+            bookImageView.frame = CGRect(origin: CGPoint(x: 0, y: 10), size: CGSize(width: 100, height: 130))
             bookImageView.af_setImageWithURL(bookImageURL)
+            
+            let imagePath = UIBezierPath(rect: bookImageView.frame)
+            longDescriptionView.textContainer.exclusionPaths = [imagePath]
         }
         
         
