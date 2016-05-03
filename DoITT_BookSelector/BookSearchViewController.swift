@@ -11,14 +11,17 @@ import UIKit
 private let kSearchResultsCellReuseID = "searchResultsCellReuseID"
 
 class BookSearchViewController: UIViewController {
-    
+    // Output display labels
     @IBOutlet weak var titleDisplayLabel: UILabel!
     @IBOutlet weak var authorDisplayLabel: UILabel!
-    
     @IBOutlet weak var longDescriptionView: UITextView!
+    
+    // Search related
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsTableView: UITableView!
+    
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
     private let apiClient = GoogleBooksAPIClient.sharedAPIClient
     private let maxResults = 20
@@ -28,8 +31,10 @@ class BookSearchViewController: UIViewController {
         didSet {
             if searchResults.isEmpty {
                 resultsTableView.hidden = true
+                blurView.hidden = true
                 view.alpha = 1.0
             } else {
+                blurView.hidden = false
                 resultsTableView.hidden = false
                 resultsTableView.reloadData()
                 view.alpha = 0.5
@@ -41,9 +46,6 @@ class BookSearchViewController: UIViewController {
         super.viewDidLoad()
         
         roundCornersOfViews([titleDisplayLabel, authorDisplayLabel, longDescriptionView], byAmount: displayLabelCornerRadius)
-        navigationController?.navigationBar.backgroundColor = onyxBlackColor
-        navigationController?.navigationBarHidden = false
-        navigationController?.toolbar.backgroundColor = onyxBlackColor
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -83,6 +85,8 @@ extension BookSearchViewController: UITableViewDelegate {
         resultsTableView.hidden = true
         
         let thisBook = searchResults[indexPath.row]
+        searchResults.removeAll()
+        
         
         titleDisplayLabel.text = " " + thisBook.title + " "
         authorDisplayLabel.text = " " + thisBook.author + " "
