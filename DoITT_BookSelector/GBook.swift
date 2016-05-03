@@ -9,16 +9,13 @@
 import Foundation
 import SwiftyJSON
 
-class TestClass {
-    
-}
-
 internal let kIndexKey = "index"
 
 struct GBook: Book {
     var title: String
     var author: String
     var description: String
+    var imageURL: String? = nil
     
     let defaultAuthor = ""
     let defaultDescription  = ""
@@ -47,6 +44,7 @@ struct GBook: Book {
         title       = json["items"][i]["volumeInfo"]["title"].stringValue
         author      = json["items"][i]["volumeInfo"]["authors"][0].stringValue
         description = json["items"][i]["volumeInfo"]["description"].stringValue
+        imageURL    = json["items"][i]["volumeInfo"]["imageLinks"]["thumbnail"].stringValue
         
         // Books must have titles.
         if title.isEmpty { DBLG(#function); return nil }
@@ -55,7 +53,8 @@ struct GBook: Book {
     }
     
     func allProperties() -> [String] {
-        return [title, author, description]
+        let properties = [title, author, description]
+        return imageURL == nil ?  properties : properties + [imageURL!]
     }
 }
 

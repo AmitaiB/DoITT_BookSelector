@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 private let kSearchResultsCellReuseID = "searchResultsCellReuseID"
 
@@ -93,6 +94,10 @@ extension BookSearchViewController: UITableViewDelegate {
 //        descriptionDisplayLabel.text = " " + thisBook.description + " "
         longDescriptionView.text = " " + thisBook.description + " "
         
+        // Add image
+        let bookImageView = UIImageView(frame: CGRectZero)
+        bookImageView
+        
         view.alpha = 1.0
     }
     
@@ -128,10 +133,10 @@ extension BookSearchViewController: UISearchBarDelegate {
         resultsTableView.hidden = true
     }
     
-    
     // MARK: - helpers
     
     func populateDataSourceFromNetworkCall(withSearchString searchString: String) {
+        activityIndicator.hidden = false
         activityIndicator.startAnimating()
         apiClient.setTimeoutInterval(timeoutInterval)
         apiClient.maxResults = maxResults
