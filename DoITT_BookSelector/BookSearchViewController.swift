@@ -95,6 +95,14 @@ extension BookSearchViewController: UITableViewDelegate {
         
         view.alpha = 1.0
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
 
 // MARK: - UISearchBarDelegate
