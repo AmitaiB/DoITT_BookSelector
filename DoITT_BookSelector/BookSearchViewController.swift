@@ -81,13 +81,14 @@ extension BookSearchViewController: UITableViewDataSource {
 extension BookSearchViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // search bar
         searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.text = nil
         searchBar.resignFirstResponder()
         resultsTableView.hidden = true
         
         let thisBook = searchResults[indexPath.row]
         searchResults.removeAll()
-        
         
         titleDisplayLabel.text = " " + thisBook.title + " "
         authorDisplayLabel.text = " " + thisBook.author + " "
@@ -95,8 +96,9 @@ extension BookSearchViewController: UITableViewDelegate {
         
         // Add image
         if let imageString = thisBook.imageURL, let bookImageURL = NSURL(string: imageString) {
-            let bookImageView = UIImageView(frame: CGRectZero)
+            let bookImageView = UIImageView()
             longDescriptionView.addSubview(bookImageView)
+            bookImageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 1, height: 1))
             bookImageView.af_setImageWithURL(bookImageURL)
         }
         
