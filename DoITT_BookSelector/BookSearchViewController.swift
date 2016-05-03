@@ -129,7 +129,7 @@ extension BookSearchViewController: UISearchBarDelegate {
     }
     
     
-    // MARK: - Helpers
+    // MARK: - helpers
     
     func populateDataSourceFromNetworkCall(withSearchString searchString: String) {
         activityIndicator.startAnimating()
@@ -146,17 +146,6 @@ extension BookSearchViewController: UISearchBarDelegate {
             self.searchResults = tempBookList
             self.activityIndicator.stopAnimating()
         }
-    }
-    
-    func handleSearchError(error: NSError, message: String) {
-        let alert = UIAlertController(title: "Error",
-                                      message: error.localizedDescription,
-                                      preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .Cancel,
-                                         handler: nil)
-        alert.addAction(cancelAction)
-        presentViewController(alert, animated: true, completion: nil)
     }
     
     func roundCornersOfViews(views: [UIView], byAmount radius: CGFloat) {
