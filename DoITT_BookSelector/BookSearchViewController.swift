@@ -130,8 +130,6 @@ extension BookSearchViewController: UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
-            resultsTableView.hidden = false
-            
             populateDataSourceFromNetworkCall(withSearchString: searchText)
         }
     }
